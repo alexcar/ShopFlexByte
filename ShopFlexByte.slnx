@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ShopFlexByte.Api/ShopFlexByte.Api.csproj" />
+    <Project Path="src/ShopFlexByte.Application/ShopFlexByte.Application.csproj" />
+    <Project Path="src/ShopFlexByte.Domain/ShopFlexByte.Domain.csproj" />
+    <Project Path="src/ShopFlexByte.Infrastructure/ShopFlexByte.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tst/">
+    <Project Path="tst/ShopFlexByte.Application.UnitTests/ShopFlexByte.Application.UnitTests.csproj" />
+    <Project Path="tst/ShopFlexByte.Domain.UnitTests/ShopFlexByte.Domain.UnitTests.csproj" />
+  </Folder>
+</Solution>
