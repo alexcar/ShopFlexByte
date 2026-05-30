@@ -59,48 +59,10 @@ public sealed class Address : ValueObject
         {
             return Result.Failure<Address>(string.Join("; ", errors));
         }
-
-        var address = new Address(street, number, neighborhood, city, state, zipCode);
         
-        return Result.Success(address);
+        return Result.Success(new Address(street, number, neighborhood, city, state, zipCode));
     }
-
-    // Value Object equality
-    private bool Equals(Address other)
-    {
-        return Street == other.Street &&
-               Number == other.Number &&
-               Neighborhood == other.Neighborhood &&
-               City == other.City &&
-               State == other.State &&
-               ZipCode == other.ZipCode;
-    }
-
-    public override bool Equals(object? obj)
-    {
-        return obj is Address other && Equals(other);
-    }
-
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(Street, Number, Neighborhood, City, State, ZipCode);
-    }
-
-    public static bool operator ==(Address left, Address right)
-    {
-        return Equals(left, right);
-    }
-
-    public static bool operator !=(Address left, Address right)
-    {
-        return !Equals(left, right);
-    }
-
-    public override string ToString()
-    {
-        return $"{Street} {Number}, {Neighborhood}, {City}, {State} {ZipCode}";
-    }
-
+    
     protected override IEnumerable<object> GetEqualityComponents()
     {
         yield return Street;
@@ -110,4 +72,7 @@ public sealed class Address : ValueObject
         yield return State;
         yield return ZipCode;
     }
+
+    public override string ToString() =>
+        $"{Street} {Number}, {Neighborhood}, {City}, {State} {ZipCode}";
 }

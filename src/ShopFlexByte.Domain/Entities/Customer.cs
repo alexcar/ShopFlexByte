@@ -4,8 +4,12 @@ using ShopFlexByte.Domain.ValueObjects;
 
 namespace ShopFlexByte.Domain.Entities;
 
-public sealed class Customer() : Entity
+public sealed class Customer : Entity
 {
+    // Construtor privado: impede instanciação direta fora do factory method.
+    // O EF Core consegue usar construtores privados sem parâmetros normalmente.
+    private Customer() { }
+
     public FullName FullName { get; private set; } = null!;
     public Cpf Cpf { get; private set; } = null!;
     public Email Email { get; private set; } = null!;    
@@ -38,10 +42,8 @@ public sealed class Customer() : Entity
             errors.Add("Primary address is required.");
         }
 
-        if (errors.Any())
-        {
+        if (errors.Count > 0)
             return Result.Failure<Customer>(string.Join("; ", errors));
-        }
 
         var customer = new Customer
         {
@@ -54,12 +56,34 @@ public sealed class Customer() : Entity
         return Result.Success(customer);
     }
 
+    public Result Update(FullName fullName, Email email)
+    {
+        var errors = new List<string>();
+
+        if (fullName is null)
+        {
+            errors.Add("Full name is required.");
+        }
+        
+        if (email is null)
+        {
+            errors.Add("Email is required.");
+        }
+        if (errors.Count > 0)
+        {
+            return Result.Failure(string.Join("; ", errors));
+        }
+        
+        FullName = fullName!;
+        Email = email!;
+        
+        return Result.Success();
+    }
+
     public Result<Address> SetPrimaryAddress(Address address)
     {
         if (address is null)
-        {
             return Result.Failure<Address>("Primary address is required.");
-        }
 
         // Se o endereço já estiver na lista de outros endereços, removê-lo
         if (_otherAddresses.Contains(address))
@@ -99,13 +123,14 @@ public sealed class Customer() : Entity
 
     public Result RemoveOtherAddress(Address address)
     {
-        if (!_otherAddresses.Contains(address))
+        if (address is null)
         {
-            return Result.Failure("Endereço não encontrado.");
-        }
+            return Result.Failure<Address>("Address is required.");
+        }        
 
-        _otherAddresses.Remove(address);
-        
+        if (!_otherAddresses.Remove(address))
+            return Result.Failure("Endereço não encontrado na lista.");
+
         return Result.Success();
     }    
 }

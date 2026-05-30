@@ -8,57 +8,59 @@ using ShopFlexByte.Domain.Enums;
 
 namespace ShopFlexByte.Application.UseCases.ProcessPayment;
 
-public sealed class ProcessPaymentUseCase(
-    IOrderRepository orderRepository,
-    IPaymentGateway paymentGateway,
-    IShoppingCartRepository shoppingCartRepository,
-    ICalculateCartTotalUseCase calculateCartTotalUseCase,
-    IMapper mapper)
-    : IProcessPaymentUseCase
-{
-    public async Task<Order> ProcessPaymentAsync(ProcessPaymentInput input)
-    {
-        var calculateTotalInput = new CalculateCartTotalInput(input.UserId);
+public sealed class ProcessPaymentUseCase { }
 
-        decimal totalAmount = await calculateCartTotalUseCase.CalculateTotalAsync(calculateTotalInput);
+//public sealed class ProcessPaymentUseCase(
+//    IOrderRepository orderRepository,
+//    IPaymentGateway paymentGateway,
+//    IShoppingCartRepository shoppingCartRepository,
+//    ICalculateCartTotalUseCase calculateCartTotalUseCase,
+//    IMapper mapper)
+//    : IProcessPaymentUseCase
+//{
+//    public async Task<Order> ProcessPaymentAsync(ProcessPaymentInput input)
+//    {
+//        var calculateTotalInput = new CalculateCartTotalInput(input.UserId);
 
-        var orderItems = mapper.Map<List<OrderItem>>(input.Items);
-        var order = new Order(input.UserId, orderItems, totalAmount);
-        order = await orderRepository.CreateOrderAsync(order);
+//        decimal totalAmount = await calculateCartTotalUseCase.CalculateTotalAsync(calculateTotalInput);
 
-        await shoppingCartRepository.DeleteByUserIdAsync(input.UserId);
+//        var orderItems = mapper.Map<List<OrderItem>>(input.Items);
+//        var order = new Order(input.UserId, orderItems, totalAmount);
+//        order = await orderRepository.CreateOrderAsync(order);
 
-        var paymentRequest = new PaymentRequest
-        {
-            Amount = totalAmount,
-            CardNumber = input.CardNumber,
-            CardHolderName = input.CardHolderName,
-            ExpirationMonthYear = input.ExpirationMonthYear,
-            CVV = input.CVV,
-            PostalCode = input.PostalCode
-        };
+//        await shoppingCartRepository.DeleteByUserIdAsync(input.UserId);
 
-        var paymentResult = await paymentGateway.ProcessPaymentAsync(paymentRequest);
+//        var paymentRequest = new PaymentRequest
+//        {
+//            Amount = totalAmount,
+//            CardNumber = input.CardNumber,
+//            CardHolderName = input.CardHolderName,
+//            ExpirationMonthYear = input.ExpirationMonthYear,
+//            CVV = input.CVV,
+//            PostalCode = input.PostalCode
+//        };
 
-        switch (paymentResult.Status)
-        {
-            case PaymentStatus.Success:
-                order.Status = OrderStatus.Paid;
-                await orderRepository.UpdateOrderAsync(order);
-                break;
-            case PaymentStatus.Pending:
-                // Payment is pending, you can log a message or notify the user.
-                break;
-            case PaymentStatus.Failed:
-                order.Status = OrderStatus.PaymentFailed;
-                await orderRepository.UpdateOrderAsync(order);
-                break;
-            default:
-#pragma warning disable S3928 // Parameter names used into ArgumentException constructors should match an existing one 
-                throw new ArgumentOutOfRangeException(nameof(paymentResult.Status));
-#pragma warning restore S3928 // Parameter names used into ArgumentException constructors should match an existing one 
-        }
+//        var paymentResult = await paymentGateway.ProcessPaymentAsync(paymentRequest);
 
-        return order;
-    }
-}
+//        switch (paymentResult.Status)
+//        {
+//            case PaymentStatus.Success:
+//                order.Status = OrderStatus.Paid;
+//                await orderRepository.UpdateOrderAsync(order);
+//                break;
+//            case PaymentStatus.Pending:
+//                // Payment is pending, you can log a message or notify the user.
+//                break;
+//            case PaymentStatus.Failed:
+//                order.Status = OrderStatus.PaymentFailed;
+//                await orderRepository.UpdateOrderAsync(order);
+//                break;
+//            default:
+//#pragma warning disable S3928 // Parameter names used into ArgumentException constructors should match an existing one 
+//                throw new ArgumentOutOfRangeException(nameof(paymentResult.Status));
+//#pragma warning restore S3928 // Parameter names used into ArgumentException constructors should match an existing one 
+//        }
+
+//        return order;
+//    }
+//}

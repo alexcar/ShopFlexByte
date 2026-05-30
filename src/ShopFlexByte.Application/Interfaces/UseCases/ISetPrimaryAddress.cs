@@ -3,7 +3,7 @@ using ShopFlexByte.Domain.Common;
 
 namespace ShopFlexByte.Application.Interfaces.UseCases;
 
-public interface ICreateCustomerUseCase
+public interface ISetPrimaryAddress
 {
-    Task<Result<CustomerCreatedResult>> CreateCustomerAsync(CreateCustomerCommand request);
+    Task<Result> SetPrimaryAddressAsync(Guid customerId, CreateAddressCommand command);
 }
