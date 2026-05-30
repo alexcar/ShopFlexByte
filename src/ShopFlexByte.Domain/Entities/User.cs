@@ -1,35 +1,35 @@
-﻿namespace ShopFlexByte.Domain.Entities;
+﻿using ShopFlexByte.Domain.Enums;
 
-public sealed class User(string username, string email, string fullName, Address primaryAddress)
+namespace ShopFlexByte.Domain.Entities;
+
+public sealed class User
 {
+    private readonly List<UserRole> _roles = new();
+
     public Guid Id { get; private set; } = Guid.NewGuid();
-    public string Username { get; } = username;
-    public string Email { get; } = email;
-    public string FullName { get; } = fullName;
-    public Address PrimaryAddress { get; private set; } = primaryAddress;
-    private readonly List<Address> _otherAddresses = new();
-    public IReadOnlyCollection<Address> OtherAddresses => _otherAddresses.AsReadOnly();
+    public string Username { get; }
+    public string Email { get; }
+    public string FullName { get; }
+    public IReadOnlyCollection<UserRole> Roles => _roles.AsReadOnly();
 
-    //public User(string username, string email, string fullName, Address primaryAddress)
-    //{
-    //    Username = username;
-    //    Email = email;
-    //    FullName = fullName;
-    //    PrimaryAddress = primaryAddress;
-    //}
-
-    public void SetPrimaryAddress(Address address)
+    public User(string username, string email, string fullName, IEnumerable<UserRole> roles)
     {
-        PrimaryAddress = address;
+        Username = username;
+        Email = email;
+        FullName = fullName;
+        _roles.AddRange(roles);
     }
 
-    public void AddOtherAddress(Address address)
+    public void AddRole(UserRole role)
     {
-        _otherAddresses.Add(address);
+        if (!_roles.Contains(role))
+        {
+            _roles.Add(role);
+        }
     }
 
-    public void RemoveOtherAddress(Address address)
+    public void RemoveRole(UserRole role)
     {
-        _otherAddresses.Remove(address);
+        _roles.Remove(role);
     }
 }
