@@ -4,6 +4,7 @@ using ShopFlexByte.Application.Interfaces.UseCases;
 using ShopFlexByte.Application.UseCases.CalculateCartTotal;
 using ShopFlexByte.Domain.Entities;
 using ShopFlexByte.Domain.Enums;
+using AutoMapper;
 
 namespace ShopFlexByte.Application.UseCases.ProcessPayment;
 
@@ -11,7 +12,8 @@ public sealed class ProcessPaymentUseCase(
     IOrderRepository orderRepository,
     IPaymentGateway paymentGateway,
     IShoppingCartRepository shoppingCartRepository,
-    ICalculateCartTotalUseCase calculateCartTotalUseCase)
+    ICalculateCartTotalUseCase calculateCartTotalUseCase,
+    IMapper mapper)
     : IProcessPaymentUseCase
 {
     public async Task<Order> ProcessPaymentAsync(ProcessPaymentInput input)
@@ -20,7 +22,7 @@ public sealed class ProcessPaymentUseCase(
 
         decimal totalAmount = await calculateCartTotalUseCase.CalculateTotalAsync(calculateTotalInput);
 
-        var orderItems = PaymentMapper.ToOrderItems(input.Items);
+        var orderItems = mapper.Map<List<OrderItem>>(input.Items);
         var order = new Order(input.UserId, orderItems, totalAmount);
         order = await orderRepository.CreateOrderAsync(order);
 

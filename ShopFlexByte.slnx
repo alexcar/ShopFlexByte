@@ -8,5 +8,7 @@
   <Folder Name="/tst/">
     <Project Path="tst/ShopFlexByte.Application.UnitTests/ShopFlexByte.Application.UnitTests.csproj" />
     <Project Path="tst/ShopFlexByte.Domain.UnitTests/ShopFlexByte.Domain.UnitTests.csproj" />
+    <Project Path="tst/ShopFlexByte.Infrastructure.UnitTests/ShopFlexByte.Infrastructure.UnitTests.csproj" Id="d0eec09d-5c57-488f-8e8d-ad393a4f711e" />
+    <Project Path="tst/ShopFlexByte.TestCommon/ShopFlexByte.TestCommon.csproj" Id="9890f3f1-6bb3-43b8-a311-a18de28d049f" />
   </Folder>
 </Solution>

@@ -1,4 +1,6 @@
-﻿namespace ShopFlexByte.Infrastructure.Persistence.Entities;
+﻿using ShopFlexByte.Domain.Entities;
+
+namespace ShopFlexByte.Infrastructure.Persistence.Entities;
 
 public sealed class Product
 {
@@ -6,4 +8,5 @@ public sealed class Product
     public string Name { get; set; } = string.Empty;
     public decimal Price { get; set; }
     public int StockLevel { get; set; }
+    public Guid CategoryId { get; set; }
 }

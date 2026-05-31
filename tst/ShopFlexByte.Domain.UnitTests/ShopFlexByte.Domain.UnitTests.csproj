@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\src\ShopFlexByte.Domain\ShopFlexByte.Domain.csproj" />
   </ItemGroup>
 

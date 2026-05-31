@@ -15,6 +15,7 @@ using Microsoft.Extensions.Options;
 using Refit;
 using System.Reflection;
 using Microsoft.Extensions.Logging.Abstractions;
+using ShopFlexByte.Application.Mapping;
 
 namespace ShopFlexByte.Infrastructure.Extensions;
 
@@ -42,7 +43,7 @@ public static class ServiceCollectionExtensions
         // Add AutoMapper and Profiles
         services.AddAutoMapper();
         // Profiles are registered in the DI Container to allow the Presentation Layer to register its own profiles without needing to know about the Infrastructure Layer's profiles.
-        // services.AddSingleton<Profile, ApplicationMappingProfile>();
+        services.AddSingleton<Profile, ApplicationMappingProfile>();
         services.AddSingleton<Profile, InfrastructureMappingProfile>();
 
         // HttpClients
