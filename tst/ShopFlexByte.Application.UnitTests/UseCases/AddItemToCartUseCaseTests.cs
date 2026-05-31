@@ -2,12 +2,15 @@
 using ShopFlexByte.Application.Interfaces.Data;
 using ShopFlexByte.Application.UseCases.AddItemToCart;
 using ShopFlexByte.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ShopFlexByte.Application.UnitTests.UseCases;
 
+// M4: Aplica os princípios de testes unitários — Isolamento (dependências substituídas por mocks NSubstitute),
+//     Repetibilidade (sem estado externo/banco, dados gerados no próprio teste), Rapidez (tudo em memória),
+//     Auto-verificação (asserts/Received que decidem sozinhos o resultado) e Abrangência (caminho feliz,
+//     criação de carrinho inexistente e cenário de exceção por estoque insuficiente).
+// O4: Uso adequado de mocks/stubs — GetByIdAsync/GetByUserIdAsync são stubados para retornar dados conhecidos
+//     e os repositórios são verificados (Received/DidNotReceive) como mocks de interação.
 public class AddItemToCartUseCaseTests
 {
     [Fact]

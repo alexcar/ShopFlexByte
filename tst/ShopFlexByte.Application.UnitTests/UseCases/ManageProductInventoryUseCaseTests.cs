@@ -9,6 +9,9 @@ using System.Text;
 
 namespace ShopFlexByte.Application.UnitTests.UseCases;
 
+// N4: Testa a regra de negócio de autorização — só um Administrator atualiza o estoque; um papel inválido
+//     resulta em UnauthorizedAccessException e o repositório NÃO é chamado (Received(0)).
+// O4: Usuário e produto são fornecidos por stubs (NSubstitute), isolando a lógica do use case.
 public class ManageProductInventoryUseCaseTests
 {
     [Fact]

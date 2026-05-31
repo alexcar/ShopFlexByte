@@ -2,6 +2,9 @@
 
 namespace ShopFlexByte.Domain.ValueObjects;
 
+// E2: Value Object — sem identidade própria, definido por seus atributos e imutável; a igualdade é
+//     estrutural (via GetEqualityComponents herdado de ValueObject). Conceito central do DDD.
+// G2: O método estático Create atua como Factory que valida e constrói o VO, mantendo o construtor privado.
 public sealed class Address : ValueObject
 {
     public string Street { get; }

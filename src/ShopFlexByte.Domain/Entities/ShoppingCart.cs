@@ -1,5 +1,9 @@
 ﻿namespace ShopFlexByte.Domain.Entities;
 
+// E2/F2: Aggregate Root do carrinho — agrupa os ShoppingCartItem e garante a consistência da coleção
+//        (somar quantidades de itens iguais, remover item quando a quantidade chega a zero).
+// D1: A lista interna é privada e mutável, exposta apenas como IReadOnlyCollection; toda alteração
+//     passa por AddItem/RemoveItem, ocultando os detalhes de manipulação da coleção.
 public sealed class ShoppingCart(Guid userId)
 {
     public Guid Id { get; private set; } = Guid.NewGuid();

@@ -4,6 +4,11 @@ using ShopFlexByte.Domain.Enums;
 
 namespace ShopFlexByte.Infrastructure.Mapping;
 
+// H2: Anti-Corruption Layer — este profile traduz entre o modelo de persistência (Persistence.Entities.*,
+//     acoplado ao EF/SQL) e o modelo rico de domínio (Domain.Entities.*), impedindo que detalhes do banco
+//     "vazem" para o domínio. Funciona como a fronteira do Context Map entre a Infrastructure e o Domínio,
+//     reconstruindo aggregates (HydrateCartItems/CreateOrder/CreateUser) a partir das tabelas.
+// K3: Mantém baixo acoplamento ao isolar a conversão em um único ponto, fora das entidades de domínio.
 internal sealed class InfrastructureMappingProfile : Profile
 {
     public InfrastructureMappingProfile()

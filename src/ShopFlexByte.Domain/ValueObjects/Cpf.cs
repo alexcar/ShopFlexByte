@@ -2,6 +2,9 @@
 
 namespace ShopFlexByte.Domain.ValueObjects;
 
+// E2: Value Object que encapsula a regra de negócio do CPF (Ubiquitous Language do domínio brasileiro).
+// D1: Abstração/Encapsulamento — toda a complexidade do algoritmo de validação dos dígitos verificadores
+//     fica oculta no método privado Validar; o exterior só vê Create (entrada) e Value/ToString (saída).
 public sealed class Cpf : ValueObject
 {
     public string Value { get; }

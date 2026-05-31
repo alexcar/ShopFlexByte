@@ -8,6 +8,10 @@ using AutoMapper;
 
 namespace ShopFlexByte.Application.UseCases.ProcessPayment;
 
+// I3: Aplica SOLID — depende de abstrações (IOrderRepository, IPaymentGateway, IShoppingCartRepository,
+//     ICalculateCartTotalUseCase, IMapper) injetadas por construtor (DIP), favorecendo coesão e baixo acoplamento.
+// L3: Padrão Controller — orquestra o fluxo de pagamento (calcula total, cria pedido, aciona o gateway e
+//     atualiza o status) sem conter regras de domínio internas, delegando-as aos colaboradores.
 public sealed class ProcessPaymentUseCase(
     IOrderRepository orderRepository,
     IPaymentGateway paymentGateway,

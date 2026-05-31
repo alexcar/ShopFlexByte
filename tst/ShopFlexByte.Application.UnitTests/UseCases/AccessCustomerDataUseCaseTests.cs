@@ -6,6 +6,10 @@ using ShopFlexByte.Domain.Enums;
 
 namespace ShopFlexByte.Application.UnitTests.UseCases;
 
+// O4: Demonstra o uso de mocks e stubs (NSubstitute) para isolar o código sob teste — o IUserRepository é
+//     stubado para devolver usuários com diferentes papéis, exercitando autorização sem tocar a infraestrutura.
+// N4: Abrange a regra de negócio de autorização tanto no caminho permitido (Administrator/CustomerService)
+//     quanto no negado (lança UnauthorizedAccessException).
 public class AccessCustomerDataUseCaseTests
 {
     [Theory]

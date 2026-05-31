@@ -4,6 +4,8 @@ using ShopFlexByte.Domain.Common;
 
 namespace ShopFlexByte.Application.UseCases.ManageCustomer;
 
+// J3: Exemplo claro de Single Responsibility — a classe faz apenas uma coisa (remover um cliente),
+//     com baixa complexidade e uma única razão para mudar.
 public sealed class DeleteCustomerUseCase(ICustomerRepository customerRepository) : IDeleteCustomerUseCase
 {
     public async Task<Result> DeleteCustomerAsync(Guid customerId)

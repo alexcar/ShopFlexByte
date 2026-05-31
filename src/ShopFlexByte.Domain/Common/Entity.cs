@@ -1,5 +1,12 @@
 ﻿namespace ShopFlexByte.Domain.Common;
 
+// A1: Classe base que demonstra os pilares de OO — Abstração (modela a noção genérica de "entidade"),
+//     Herança (serve de base para Customer e demais entidades) e Polimorfismo (sobrescreve Equals/GetHashCode
+//     e os operadores ==/!=). O Encapsulamento aparece nos setters protegidos das propriedades.
+// B1: Uso correto de modificadores de acesso (public/protected), propriedades com setters protegidos,
+//     métodos públicos (Deactivate/Activate/MarkAsUpdated) e construtor protegido que inicializa o estado.
+// C1: Define uma hierarquia flexível e extensível: a igualdade por identidade (Id) é herdada por todas
+//     as entidades; subclasses apenas reaproveitam o comportamento sem reimplementá-lo.
 public class Entity
 {
     public Guid Id { get; protected set; }

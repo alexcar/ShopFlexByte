@@ -12,6 +12,9 @@ using ShopFlexByte.Domain.Enums;
 
 namespace ShopFlexByte.Application.UnitTests.UseCases;
 
+// N4: Cobre métodos com regra de negócio relevante — valida que, conforme o status retornado pelo gateway,
+//     o pedido passa para Paid (pagamento aprovado) ou PaymentFailed (pagamento recusado) e que o carrinho é limpo.
+// O4: Mocks/stubs com NSubstitute para o gateway de pagamento e repositórios, isolando a unidade sob teste.
 public class ProcessPaymentUseCaseTests
 {
     private readonly IMapper _mapper;

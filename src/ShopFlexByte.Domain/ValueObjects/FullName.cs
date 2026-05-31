@@ -2,6 +2,8 @@
 
 namespace ShopFlexByte.Domain.ValueObjects;
 
+// E2: Value Object que modela "Nome completo" decompondo-o em FirstName/LastName, imutável e validado.
+// G2: Create funciona como Factory do VO (separa a construção/validação do estado interno).
 public sealed class FullName : ValueObject
 {
     public string FirstName { get; }

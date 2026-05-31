@@ -2,6 +2,8 @@
 
 namespace ShopFlexByte.Domain.Entities;
 
+// E2/F2: Aggregate Root de Pedido (Ubiquitous Language: "Order") — agrega OrderItem e mantém o total e
+//        o ciclo de vida do status (OrderStatus). A coleção de itens é encapsulada como somente-leitura.
 public sealed class Order
 {
     private readonly List<OrderItem> _items = new();

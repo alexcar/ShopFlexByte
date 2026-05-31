@@ -2,6 +2,10 @@
 
 namespace ShopFlexByte.Domain.UnitTests.Entities;
 
+// P4: Conjunto de testes voltado à cobertura do código de DOMÍNIO — exercita todos os ramos das regras do
+//     aggregate ShoppingCart (AddItem novo/existente e RemoveItem com quantidade igual, maior e menor),
+//     contribuindo para manter a cobertura do domínio acima de 80%.
+// M4: Testes rápidos, isolados (sem dependências externas) e auto-verificáveis sobre a entidade pura.
 public class ShoppingCartTests
 {
     [Fact]

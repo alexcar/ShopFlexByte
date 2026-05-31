@@ -2,6 +2,9 @@
 
 namespace ShopFlexByte.Domain.ValueObjects;
 
+// E2: Value Object de e-mail — imutável, normalizado e validado na criação; garante que toda instância
+//     existente é, por construção, um e-mail válido (invariante do domínio).
+// D1: Detalhe de validação encapsulado no método privado Validar, expondo apenas a interface Create.
 public sealed class Email : ValueObject
 {
     public string Value { get; }

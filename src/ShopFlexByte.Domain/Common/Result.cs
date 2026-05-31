@@ -1,5 +1,8 @@
 ﻿namespace ShopFlexByte.Domain.Common;
 
+// D1: Result encapsula o resultado de uma operação (sucesso/falha + erro) ocultando a construção do estado
+//     atrás de factory methods estáticos (Success/Failure) e de um construtor protegido — interface clara e concisa.
+// C1: Result<T> herda de Result, estendendo o tipo base com um Value tipado (hierarquia extensível).
 public class Result
 {
     public bool IsSuccess { get; }

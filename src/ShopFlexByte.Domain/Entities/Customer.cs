@@ -4,9 +4,14 @@ using ShopFlexByte.Domain.ValueObjects;
 
 namespace ShopFlexByte.Domain.Entities;
 
+// E2: Entity do domínio (Ubiquitous Language: "Cliente") com identidade própria herdada de Entity,
+//     composta por Value Objects (FullName, Cpf, Email, Address) — modelagem coerente com DDD.
+// F2: Aggregate Root do Bounded Context de clientes — controla a consistência da coleção de endereços
+//     (PrimaryAddress + OtherAddresses), que só pode ser alterada por meio de seus métodos.
+// C1: Herda de Entity reaproveitando identidade, igualdade e soft delete (Deactivate).
 public sealed class Customer : Entity
 {
-    // Construtor privado: impede instanciação direta fora do factory method.
+    // B1: Construtor privado — impede instanciação direta fora do factory method (encapsula a criação).
     // O EF Core consegue usar construtores privados sem parâmetros normalmente.
     private Customer() { }
 
@@ -15,9 +20,14 @@ public sealed class Customer : Entity
     public Email Email { get; private set; } = null!;    
     public Address PrimaryAddress { get; private set; } = null!;
 
+    // D1: Encapsulamento — a lista é privada e mutável; expõe-se apenas uma visão somente-leitura,
+    //     impedindo que código externo altere a coleção sem passar pelas regras do aggregate.
     private readonly List<Address> _otherAddresses = new();
-    public IReadOnlyCollection<Address> OtherAddresses => _otherAddresses.AsReadOnly();    
+    public IReadOnlyCollection<Address> OtherAddresses => _otherAddresses.AsReadOnly();
 
+    // G2: Factory Method — responsável por CRIAR um Customer válido, validando invariantes e devolvendo
+    //     Result em vez de lançar exceção. Difere de um Domain Service (que coordenaria regras entre
+    //     múltiplos aggregates): aqui a responsabilidade é apenas a construção consistente da própria entidade.
     public static Result<Customer> Create(FullName fullName, Cpf cpf, Email email, Address primaryAddress)
     {
         var errors = new List<string>();

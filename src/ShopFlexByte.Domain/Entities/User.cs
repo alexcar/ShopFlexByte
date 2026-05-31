@@ -2,6 +2,9 @@
 
 namespace ShopFlexByte.Domain.Entities;
 
+// B1: Aplica corretamente modificadores de acesso (private no campo, get-only/private set nas propriedades),
+//     construtor que inicializa o estado e métodos públicos coesos (AddRole/RemoveRole).
+// D1: Encapsula a coleção de papéis — o campo _roles é privado e só é exposto como IReadOnlyCollection.
 public sealed class User
 {
     private readonly List<UserRole> _roles = new();
