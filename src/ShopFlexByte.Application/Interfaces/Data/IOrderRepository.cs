@@ -1,6 +1,6 @@
 ﻿using ShopFlexByte.Domain.Entities;
 
-namespace Application.Interfaces.Data;
+namespace ShopFlexByte.Application.Interfaces.Data;
 
 public interface IOrderRepository
 {

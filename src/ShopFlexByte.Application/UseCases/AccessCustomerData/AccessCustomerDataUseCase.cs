@@ -1,5 +1,4 @@
-﻿using Application.Interfaces.Data;
-using ShopFlexByte.Application.Interfaces.Data;
+﻿using ShopFlexByte.Application.Interfaces.Data;
 using ShopFlexByte.Application.Interfaces.UseCases;
 using ShopFlexByte.Domain.Entities;
 using ShopFlexByte.Domain.Enums;

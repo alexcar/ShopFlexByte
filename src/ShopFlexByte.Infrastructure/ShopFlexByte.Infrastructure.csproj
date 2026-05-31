@@ -6,8 +6,31 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="16.1.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.8" />
+		<PackageReference Include="Refit.HttpClientFactory" Version="10.1.6" />
+	</ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\ShopFlexByte.Application\ShopFlexByte.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<None Update="appsettings.core.json">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</None>
+	<None Update="appsettings.core.Development.json">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		<DependentUpon>appsettings.core.json</DependentUpon>
+	</None>
   </ItemGroup>
 
 </Project>

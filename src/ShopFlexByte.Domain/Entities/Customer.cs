@@ -80,6 +80,13 @@ public sealed class Customer : Entity
         return Result.Success();
     }
 
+    public Result Delete()
+    {
+        Deactivate();
+        
+        return Result.Success();
+    }
+
     public Result<Address> SetPrimaryAddress(Address address)
     {
         if (address is null)
