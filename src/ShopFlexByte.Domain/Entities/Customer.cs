@@ -34,22 +34,22 @@ public sealed class Customer : Entity
         
         if (fullName is null)
         {
-            errors.Add("Full name is required.");
+            errors.Add("É necessário nome completo.");
         }        
 
         if (cpf is null)
         {
-            errors.Add("CPF is required.");
+            errors.Add("É necessário o CPF.");
         }
 
         if (email is null)
         {
-            errors.Add("Email is required.");
+            errors.Add("É necessário enviar um endereço de e-mail.");
         }        
 
         if (primaryAddress is null)
         {
-            errors.Add("Primary address is required.");
+            errors.Add("É necessário o endereço principal.");
         }
 
         if (errors.Count > 0)
@@ -72,12 +72,12 @@ public sealed class Customer : Entity
 
         if (fullName is null)
         {
-            errors.Add("Full name is required.");
+            errors.Add("É necessário nome completo.");
         }
         
         if (email is null)
         {
-            errors.Add("Email is required.");
+            errors.Add("É necessário enviar um endereço de e-mail.");
         }
         if (errors.Count > 0)
         {
@@ -100,7 +100,7 @@ public sealed class Customer : Entity
     public Result<Address> SetPrimaryAddress(Address address)
     {
         if (address is null)
-            return Result.Failure<Address>("Primary address is required.");
+            return Result.Failure<Address>("É necessário o endereço principal.");
 
         // Se o endereço já estiver na lista de outros endereços, removê-lo
         if (_otherAddresses.Contains(address))
@@ -124,7 +124,7 @@ public sealed class Customer : Entity
     {
         if (address is null)
         {
-            return Result.Failure<Address>("Address is required.");
+            return Result.Failure<Address>("É necessário endereço.");
         }
 
         // Verifica se o endereço já existe na lista de outros endereços ou é o endereço principal
@@ -142,7 +142,7 @@ public sealed class Customer : Entity
     {
         if (address is null)
         {
-            return Result.Failure<Address>("Address is required.");
+            return Result.Failure<Address>("É necessário endereço.");
         }        
 
         if (!_otherAddresses.Remove(address))

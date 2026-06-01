@@ -10,12 +10,12 @@ public sealed class SetPrimaryAddressUseCase(ICustomerRepository customerReposit
     public async Task<Result> SetPrimaryAddressAsync(Guid customerId, CreateAddressCommand command)
     {
         if (command is null)
-            return Result.Failure("Command is null.");        
+            return Result.Failure("Endereço não foi informado.");        
 
         var customer = await customerRepository.GetByIdAsync(customerId);
 
         if (customer is null)
-            return Result.Failure("Customer not found.");
+            return Result.Failure("Cliente não encontrado.");
 
         var addressResult = Address.Create(
             command.Street,

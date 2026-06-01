@@ -10,7 +10,7 @@ public sealed class UpdateCustomerUseCase(ICustomerRepository customerRepository
     public async Task<Result> UpdateCustomerAsync(Guid customerId, UpdateCustomerCommand command)
     {
         if (command is null)
-            return Result.Failure("Customer cannot be null.");
+            return Result.Failure("O cliente não foi informado.");
 
         var errors = new List<string>();
 
@@ -18,7 +18,7 @@ public sealed class UpdateCustomerUseCase(ICustomerRepository customerRepository
 
         if (customer is null)
         {
-            return Result.Failure("Customer not found.");
+            return Result.Failure("Cliente não encontrado.");
         }
 
         var fullNameResult = FullName.Create(command.FullName);

@@ -9,12 +9,12 @@ public sealed class RemoveOtherAddressUseCase(ICustomerRepository customerReposi
     public async Task<Result> RemoveOtherAddressAsync(Guid customerId, CreateAddressCommand command)
     {
         if (command is null)
-            return Result.Failure("Command is null.");
+            return Result.Failure("Endereço não foi informado.");
         
         var customer = await customerRepository.GetByIdAsync(customerId);
         
         if (customer is null)
-            return Result.Failure("Customer not found.");        
+            return Result.Failure("Cliente não encontrado.");        
 
         var addressToRemove = customer.OtherAddresses.FirstOrDefault(a =>
             a.Street == command.Street &&

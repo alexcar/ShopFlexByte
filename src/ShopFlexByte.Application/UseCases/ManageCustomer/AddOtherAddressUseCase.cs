@@ -13,12 +13,12 @@ public sealed class AddOtherAddressUseCase(ICustomerRepository customerRepositor
 
         if (customer is null)
         {
-            return Result.Failure("Customer not found.");
+            return Result.Failure("Cliente não encontrado.");
         }
 
         if (command is null)
         {
-            return Result.Failure("Command is null.");
+            return Result.Failure("O endereço não foi informado.");
         }        
 
         var otherAddressResult = Address.Create(

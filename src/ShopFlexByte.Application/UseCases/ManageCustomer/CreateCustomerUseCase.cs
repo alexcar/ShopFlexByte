@@ -16,7 +16,7 @@ public sealed class CreateCustomerUseCase(ICustomerRepository customerRepository
     public async Task<Result<CustomerCreatedResult>> CreateCustomerAsync(CreateCustomerCommand command)
     {
         if (command is null) 
-            return Result.Failure<CustomerCreatedResult>("Customer cannot be null.");
+            return Result.Failure<CustomerCreatedResult>("O cliente não foi informado.");
         
         var errors = new List<string>();
 

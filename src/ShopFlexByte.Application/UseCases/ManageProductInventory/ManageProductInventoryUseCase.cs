@@ -16,12 +16,12 @@ public sealed class ManageProductInventoryUseCase(
 
         if (user == null)
         {
-            throw new UnauthorizedAccessException("User not found.");
+            throw new UnauthorizedAccessException("Usuário não encontrado.");
         }
 
         if (!user.Roles.Contains(UserRole.Administrator))
         {
-            throw new UnauthorizedAccessException("User is not authorized to manage product inventory.");
+            throw new UnauthorizedAccessException("Usuário não está autorizado a gerenciar o estoque de produtos.");
         }
 
         Product? product = await productRepository.GetByIdAsync(productId);

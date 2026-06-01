@@ -30,32 +30,32 @@ public sealed class Address : ValueObject
 
         if (string.IsNullOrWhiteSpace(street))
         {
-            errors.Add("Street is required.");
+            errors.Add("É necessário ter acesso à rua.");
         }
 
         if (string.IsNullOrWhiteSpace(number))
         {
-            errors.Add("Number is required.");
+            errors.Add("É necessário um número.");
         }
 
         if (string.IsNullOrWhiteSpace(neighborhood))
         {
-            errors.Add("Neighborhood is required.");
+            errors.Add("É necessário ter um bairro.");
         }
 
         if (string.IsNullOrWhiteSpace(city))
         {
-            errors.Add("City is required.");
+            errors.Add("É necessário informar a cidade.");
         }
 
         if (string.IsNullOrWhiteSpace(state))
         {
-            errors.Add("State is required.");
+            errors.Add("É necessário informar o estado.");
         }
 
         if (string.IsNullOrWhiteSpace(zipCode))
         {
-            errors.Add("Zip code is required.");
+            errors.Add("É necessário informar o código postal.");
         }
 
         if (errors.Any())

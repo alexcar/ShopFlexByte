@@ -19,7 +19,7 @@ public sealed class AddItemToCartUseCase(
         if (product.StockLevel < input.Quantity)
         {
             throw new InvalidOperationException(
-                $"Not enough stock for '{product.Name}'. Requested: {input.Quantity}, Available: {product.StockLevel}");
+                $"Estoque insuficiente para '{product.Name}'. Solicitado: {input.Quantity}, Disponível: {product.StockLevel}");
         }
 
         var shoppingCart = await shoppingCartRepository.GetByUserIdAsync(input.UserId)

@@ -13,7 +13,7 @@ public sealed class DeleteCustomerUseCase(ICustomerRepository customerRepository
         var customer = await customerRepository.GetByIdAsync(customerId);
 
         if (customer is null)
-            return Result.Failure("Customer not found.");
+            return Result.Failure("Cliente não encontrado.");
 
         customer.Delete();
 

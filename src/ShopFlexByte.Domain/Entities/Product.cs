@@ -15,7 +15,7 @@ public sealed class Product(string name, decimal price, int stockLevel, Guid cat
     {
         if (stockLevel < 0)
         {
-            throw new ArgumentException("Stock level cannot be negative", nameof(stockLevel));
+            throw new ArgumentException("O nível de estoque não pode ser negativo.", nameof(stockLevel));
         }
 
         StockLevel = stockLevel;

@@ -19,12 +19,12 @@ public sealed class FullName : ValueObject
         var normalized = fullName?.Trim() ?? string.Empty;
 
         if (string.IsNullOrWhiteSpace(normalized))
-            return Result.Failure<FullName>("Full name is required.");
+            return Result.Failure<FullName>("É necessário nome completo.");
 
         var names = normalized.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries);
         
         if (names.Length < 2)
-            return Result.Failure<FullName>("Full name must include both first and last name.");
+            return Result.Failure<FullName>("O nome completo deve incluir o primeiro e o último nome.");
 
         return Result.Success(new FullName(names[0], names[1]));
     }
