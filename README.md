@@ -32,7 +32,10 @@ O DDD foi escolhido porque:
 
 O resultado é um sistema mais robusto, expressivo e preparado para crescer de forma ordenada.
 
-**Incluir aqui o diagrama da modelagem do domínio (DDD)**
+Imagem da modelagem do domínio ShopFlexByte
+
+![Imagem da modelagem do domínio ShopFlexByte](https://github.com/alexcar/ShopFlexByte/blob/main/docs/domain-model.png)
+
 
 
 
