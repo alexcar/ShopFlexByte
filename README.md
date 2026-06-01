@@ -39,7 +39,7 @@ Imagem da modelagem do domínio ShopFlexByte
 ## Rubrica
 
 1. Rubrica
-	1. Aplicar os conceitos de Orientação a Objetos com C# ![](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
+	1. Aplicar os conceitos de Orientação a Objetos com C# ![Rubrica 1.1](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
 	2. Aplicar os conceitos de Orientação a Objetos com C# ![](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
 	3. Aplicar os conceitos de Orientação a Objetos com C# ![](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
 	4.  Aplicar os conceitos de Orientação a Objetos com C# ![](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
