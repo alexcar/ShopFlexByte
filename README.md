@@ -34,7 +34,7 @@ O resultado é um sistema mais robusto, expressivo e preparado para crescer de f
 
 Imagem da modelagem do domínio ShopFlexByte
 
-![Imagem da modelagem do domínio ShopFlexByte](docs/donain-model.png)
+![Imagem da modelagem do domínio ShopFlexByte](https://github.com/alexcar/ShopFlexByte/blob/main/docs/domain-model.png)
 
 
 
