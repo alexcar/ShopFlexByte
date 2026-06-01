@@ -40,7 +40,7 @@ Imagem da modelagem do domínio ShopFlexByte
 
 
 | Rubrica                                                                                                                                                                                      | Arquivos           |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ |
 | 1. Aplicar os conceitos de Orientação a Objetos com C# <br> O aluno implementou as classes aplicando os conceitos básicos de OO como Encapsulamento, Abstração, Herança e Polimorfismo? | Conteúdo A <br> A2 |
 | 1. Aplicar os conceitos de Orientação a Objetos com C# <br> O aluno implementou as classes e objetos em C#, aplicando corretamente modificadores de acesso, propriedades, métodos e construtores? | Conteúdo A <br> A2 |
 | 1. Aplicar os conceitos de Orientação a Objetos com C# <br> O aluno aplicou herança e polimorfismo em C# para criar hierarquias de classes flexíveis e extensíveis? | Conteúdo A <br> A2 |
