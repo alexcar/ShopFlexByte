@@ -40,9 +40,9 @@ Imagem da modelagem do domínio ShopFlexByte
 
 1. Rubrica
 	- Aplicar os conceitos de Orientação a Objetos com C# ![Common/Entity.cs | Common/ValueObject.cs](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
-	- Aplicar os conceitos de Orientação a Objetos com C# ![Rubrica A2](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
-	- Aplicar os conceitos de Orientação a Objetos com C# ![Rubrica A3](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
-	-  Aplicar os conceitos de Orientação a Objetos com C# ![Rubrica A4](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
+	- Aplicar os conceitos de Orientação a Objetos com C# ![Common/Entity.cs | Entity/User.cs | Product.cs | ShoppingCart.cs](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
+	- Aplicar os conceitos de Orientação a Objetos com C# ![Rubrica C1](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
+	-  Aplicar os conceitos de Orientação a Objetos com C# ![Rubrica D1](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
 2. Rubrica
 	1. Modelar aplicações utilizando Domain-Driven Design
 	2. aaaa
