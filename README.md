@@ -36,6 +36,30 @@ Imagem da modelagem do domínio ShopFlexByte
 
 ![Imagem da modelagem do domínio ShopFlexByte](https://github.com/alexcar/ShopFlexByte/blob/main/docs/domain-model.png)
 
+## Rubrica
+
+1. Rubrica
+	1. Aplicar os conceitos de Orientação a Objetos com C# ![](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
+	2. Aplicar os conceitos de Orientação a Objetos com C# ![](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
+	3. Aplicar os conceitos de Orientação a Objetos com C# ![](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
+	4.  Aplicar os conceitos de Orientação a Objetos com C# ![](https://github.com/alexcar/ShopFlexByte/blob/main/src/ShopFlexByte.Domain/Common/Entity.cs)
+2. Rubrica
+	1. Modelar aplicações utilizando Domain-Driven Design
+	2. aaaa
+	3. aaaa
+	4. aaaa
+3. ffffff
+	1. ddddd
+	2. ddddd
+	3. dddd
+	4. ddd
+4. aaaa
+	1. aaa
+	2. aaa
+	3. aaa
+
+
+   
 
 
 
